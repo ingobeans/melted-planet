@@ -1,4 +1,4 @@
-// definitely not me throwing random stuff at the wall to see what sticks
+// definitely not me just throwing random stuff at the wall to see what sticks
 
 
 // messed up gravity formula because yes
@@ -57,3 +57,4 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
     fragColor = vec4(col, 1.0);
 }
+// iris
