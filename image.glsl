@@ -2,7 +2,7 @@ float g = 0.5;
 
 void calcForces(vec2 pos,vec2 vel, inout vec2 forces, float time, vec2 body) {
     //pos.y = sin(pos.y+pos.x/6.0);
-    pos.y = sin(pos.y+sin(pos.x)/6.0 );
+   // pos.y = sin(pos.y+sin(pos.x)/6.0 );
 
     float body_mass = 100.0;
 
@@ -22,7 +22,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     vec2 uv = fragCoord / iResolution.xy;
     
-    int steps = 250;
+    int steps = 7;
 
     vec2 pos = fragCoord / vec2(iResolution.x,iResolution.x);;
     vec2 vel = vec2(0.0,0.0);
@@ -37,7 +37,8 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     }
 
     vec3 col = vec3(pos.x,pos.y,1.0);
-    float c = 
+    float c = pos.x + pos.y;
+    col = vec3(c,c,1.0);
 
     fragColor = vec4(col, 1.0);
 }
