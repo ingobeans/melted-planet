@@ -47,19 +47,13 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         applyForces(pos,vel,forces,0.1 / float(steps));
     }
 
-    vec3 col = vec3(pos.x,pos.y,1.0);
+    vec3 col = vec3(pos.x,pos.y*sin(iTime),1.0);
     float c = pos.x + pos.y;
     // cool color
-    vec3 col1 = vec3(191.0/255.0,26.0/255.0,23.0/255.0);
-    vec3 col2 = vec3(191.0/255.0,26.0/255.0,23.0/255.0);
-    vec3 col3 = vec3(255.0/255.0,167.0/255.0,18.0/255.0);
-    if (c > 0.5) {
-        col = col1 * c;
-    } else if (c > 0.5) {
-        col = col2 * c;
-    } else {
-        col = col3 * c;
-    }
+    vec3 col1 = vec3(191.0/255.0,26.0/255.0,230.0/255.0);
+    vec3 col2 = vec3(255.0/255.0,167.0/255.0,230.0/255.0);
+    
+    col = mix(col1,col2,c);
 
     // color banding maybe?
 
