@@ -1,8 +1,12 @@
-float g = 0.5;
+// random bullshit go: the shader
+//
 
+
+// messed up gravity formula because yes
+float g = 0.5;
 void calcForces(vec2 pos,vec2 vel, inout vec2 forces, float time, vec2 body) {
-    //pos.y = sin(pos.y+pos.x/6.0);
-   pos.y = sin(pos.y+sin(pos.x)/6.0 );
+    // to make it less symmetrical and boring
+    pos.y = sin(pos.y+sin(pos.x)/6.0 );
 
     float body_mass = 100.0;
 
@@ -11,7 +15,7 @@ void calcForces(vec2 pos,vec2 vel, inout vec2 forces, float time, vec2 body) {
         d = 100.0;
     }
 
-    float f = g * body_mass / d / d;
+    float f = g * body_mass / d ;
     vec2 delta = (body-pos)/d;
 
     forces += f*delta;
@@ -25,7 +29,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     vec2 uv = fragCoord / iResolution.xy;
     
-    int steps = 51;
+    int steps = 5;
 
     vec2 pos = fragCoord / vec2(iResolution.x,iResolution.x);;
     vec2 vel = vec2(0.0,0.0);
