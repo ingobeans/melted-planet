@@ -53,6 +53,13 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec3 col1 = vec3(191.0/255.0,26.0/255.0,23.0/255.0);
     vec3 col2 = vec3(191.0/255.0,26.0/255.0,23.0/255.0);
     vec3 col3 = vec3(255.0/255.0,167.0/255.0,18.0/255.0);
+    if (c > 0.5) {
+        col = col1 * c;
+    } else if (c > 0.5) {
+        col = col2 * c;
+    } else {
+        col = col3 * c;
+    }
 
     // color banding maybe?
 
