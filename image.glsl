@@ -4,13 +4,9 @@
 
 float g = 0.5;
 
-void calcForces(inout vec2 pos,inout vec2 vel, inout vec2 forces, float time, vec2 iResolution) {
-    // A soft circle in the middle that follows the mouse while you hold a button.
-    vec2 centre = iMouse.z > 0.0 ? (iMouse.xy * iResolution.x) : (vec2(0.5,0.5));
+void calcForces(inout vec2 pos,inout vec2 vel, inout vec2 forces, float time, vec2 body) {
 
-    vec2 body = centre;
-
-    float body_mass = 2.0;
+    float body_mass = 100.0;
 
     float d = distance(pos,body);
 
@@ -28,7 +24,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     vec2 uv = fragCoord / iResolution.xy;
     
-    int steps = 5;
+    int steps = 25;
 
     vec2 pos = fragCoord / vec2(iResolution.x,iResolution.x);;
     vec2 vel = vec2(0.0,0.0);
