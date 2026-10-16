@@ -25,6 +25,10 @@ void applyForces(inout vec2 pos,inout vec2 vel, inout vec2 forces, float time) {
     pos += vel * time;
 }
 
+float colorBand(float inputC, float steps) {
+    return float(int(inputC * steps)) / steps;
+}
+
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     vec2 uv = fragCoord / iResolution.xy;
@@ -49,7 +53,9 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     col = vec3(191.0/255.0,26.0/255.0,23.0/255.0)*c;
 
     // color banding maybe?
-    col.x = 
+    col.x = colorBand(col.x,4.0);
+    col.y = colorBand(col.y,8.0);
+    col.z = colorBand(col.z,2.0);
 
     fragColor = vec4(col, 1.0);
 }
