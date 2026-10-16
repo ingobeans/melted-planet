@@ -31,7 +31,6 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec2 uv = fragCoord / iResolution.xy;
     
     int steps = 5;
-
     vec2 pos = fragCoord / vec2(iResolution.x,iResolution.x);;
     vec2 vel = vec2(0.0,0.0);
     for (int i = 0; i < steps; i++) {
@@ -49,6 +48,9 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     // cool color
     vec3 col1 = vec3(191.0/255.0,26.0/255.0,230.0/255.0);
     vec3 col2 = vec3(255.0/255.0,167.0/255.0,230.0/255.0);
+
+    col1 = vec3(89.0/255.0,201.0/255.0,243.0/255.0);
+    col2 = vec3(237.0/255.0,167.0/255.0,230.0/255.0);
     
     col = mix(col1,col2,c);
 
