@@ -1,5 +1,4 @@
-// random bullshit go: the shader
-//
+// definitely not me throwing random stuff at the wall to see what sticks
 
 
 // messed up gravity formula because yes
@@ -50,7 +49,6 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     vec3 col2 = vec3(255.0/255.0,167.0/255.0,230.0/255.0);
 
     col1 = col1 = vec3(191.0/255.0,146.0/255.0,230.0/255.0);
-    col1 = col1 = vec3(11.0/255.0,146.0/255.0,230.0/255.0);
     col2 = col2 = vec3(255.0/255.0,167.0/255.0,230.0/255.0);
     
     col = mix(col1,col2,c);
