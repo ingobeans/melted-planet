@@ -10,7 +10,7 @@ void calcForces(vec2 pos,vec2 vel, inout vec2 forces, float time, vec2 body) {
 
     float body_mass = 100.0;
 
-    float d = distance(pos,body) * 0.17;
+    float d = distance(pos,body) * 0.3;
     if (d < 0.0) {
         d = 100.0;
     }
