@@ -1,7 +1,8 @@
 float g = 0.5;
 
 void calcForces(vec2 pos,vec2 vel, inout vec2 forces, float time, vec2 body) {
-    pos.y = sin(pos.y);
+    //pos.y = sin(pos.y+pos.x/6.0);
+    pos.y = sin(pos.y+sin(pos.x)/6.0);
 
     float body_mass = 100.0;
 
