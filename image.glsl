@@ -10,7 +10,7 @@ void calcForces(vec2 pos,vec2 vel, inout vec2 forces, float time, vec2 body) {
 
     float body_mass = 100.0;
 
-    float d = distance(pos,body);
+    float d = distance(pos,body) * 0.17;
     if (d < 0.0) {
         d = 100.0;
     }
@@ -47,7 +47,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         applyForces(pos,vel,forces,0.1 / float(steps));
     }
 
-    vec3 col = vec3(pos.x,pos.y*sin(iTime),1.0);
+    vec3 col = vec3(pos.x,pos.y,1.0);
     float c = pos.x + pos.y;
     // cool color
     vec3 col1 = vec3(191.0/255.0,26.0/255.0,230.0/255.0);
