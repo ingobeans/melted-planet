@@ -4,9 +4,16 @@
 
 float g = 0.5;
 
-vec2 calcForces(vec2 pos, vec2 vel) {
+vec2 calcForces(vec2 pos, vec2 vel, float time) {
     vec2 body = vec2(0.5,0.5);
     float body_mass = 2.0;
+
+    float d = distance(pos,body);
+
+    float f = g * body_mass / d / d;
+
+    vel += f * time;
+    pos += vel * time;
 
     return pos;
 }
