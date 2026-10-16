@@ -4,9 +4,9 @@
 
 float g = 0.5;
 
-void calcForces(inout vec2 pos,inout vec2 vel, float time, vec2 iResolution) {
+void calcForces(inout vec2 pos,inout vec2 vel, inout vec2 forces, float time, vec2 iResolution) {
     // A soft circle in the middle that follows the mouse while you hold a button.
-    vec2 centre = iMouse.z > 0.0 ? (iMouse.xy * iResolution.xy) : (vec2(0.5,0.5));
+    vec2 centre = iMouse.z > 0.0 ? (iMouse.xy * iResolution.x) : (vec2(0.5,0.5));
 
     vec2 body = centre;
 
@@ -16,7 +16,10 @@ void calcForces(inout vec2 pos,inout vec2 vel, float time, vec2 iResolution) {
 
     float f = g * body_mass / d / d;
 
-    vel += f * time;
+    forces += f;
+}
+void applyForces(inout vec2 pos,inout vec2 vel, inout vec2 forces, float time, vec2 iResolution) {
+    vel += forces * time;
     pos += vel * time;
 }
 
@@ -26,11 +29,11 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     
     int steps = 510;
 
-    vec2 pos = fragCoord / vec2(iResolution.x,iResolution.y);
+    vec2 pos = fragCoord / vec2(iResolution.x,iResolution.x);;
     vec2 vel = vec2(0.0,0.0);
     for (int i = 0; i < steps; i++) {
-
-        calcForces(pos,vel,0.1 / float(steps), iResolution.xy);
+        vec2 forces = vec2(0.0,0.0);
+        calcForces(pos,vel,forces,0.1 / float(steps), iResolution.xy);
     }
 
     vec3 col = vec3(pos.x,pos.y,1.0);
