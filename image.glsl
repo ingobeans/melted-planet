@@ -45,7 +45,11 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
     vec3 col = vec3(pos.x,pos.y,1.0);
     float c = pos.x + pos.y;
-    col = vec3(c,c,1.0);
+    // cool color
+    col = vec3(191.0/255.0,26.0/255.0,23.0/255.0)*c;
+
+    // color banding maybe?
+    col.x = 
 
     fragColor = vec4(col, 1.0);
 }
